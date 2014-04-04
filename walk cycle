@@ -1,0 +1,113 @@
+// Sweep
+// by BARRAGAN <http://barraganstudio.com> 
+// This example code is in the public domain.
+
+
+#include <Servo.h> 
+ 
+Servo frontRight;  // create servo object to control a servo 
+Servo frontRightL;                // a maximum of eight servo objects can be created 
+Servo bottomLeft;
+Servo bottomLeftL;
+
+Servo frontLeft;
+Servo frontLeftL;
+Servo bottomRight;
+Servo bottomRightL;
+int pos = 0;    // variable to store the servo position 
+ 
+void setup() 
+{ 
+  frontRight.attach(12); //metal shoulder    L means leg, else means shoulder
+  frontRightL.attach(11);  // rubber leg 
+
+  bottomLeft.attach(10); //shoulder
+  bottomLeftL.attach(9); //leg
+
+  frontLeft.attach(8);//shoulder
+  frontLeftL.attach(7); //leg
+  
+  bottomRight.attach(6); //shoulder
+  bottomRightL.attach(5); //leg
+
+
+} 
+ 
+ 
+void loop() 
+{ 
+  for(pos = 90; pos<=180; pos+=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    frontRightL.write(pos);    // tell servo to go to position in variable 'pos' 
+    bottomLeftL.write(pos);
+    delay(15); 
+  }
+  
+  
+  for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    frontRight.write(pos);  
+    bottomLeft.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15);
+  }
+  
+  
+   for(pos = 180; pos >= 90; pos-=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    frontRightL.write(pos);
+    bottomLeftL.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15); 
+  }
+    
+    for(pos = 180; pos >=1; pos -= 1)  // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    frontRight.write(pos);
+    bottomLeft.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15);   
+} 
+  
+  
+  
+  
+  
+  
+ 
+ 
+  for(pos = 90; pos<=180; pos+=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    bottomRightL.write(pos);    // tell servo to go to position in variable 'pos' 
+    frontLeftL.write(pos);
+    delay(15); 
+  }
+  
+  for(pos = 180; pos >=1; pos -= 1)  // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    bottomRight.write(pos);
+    frontLeft.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15);   
+} 
+  
+  
+  
+   for(pos = 180; pos >= 90; pos-=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    bottomRightL.write(pos);
+    frontLeftL.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15); 
+  }
+    
+    
+    for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    bottomRight.write(pos);  
+    frontLeft.write(pos);    // tell servo to go to position in variable 'pos' 
+    delay(15);
+  }
+    
+  
+  
+   
+    
+
+}
+    
